@@ -45,7 +45,7 @@ function goForward(rover) {
     }
       break;}
 
-    if ((rover.position [0] === tree.position[0]) && (myRover.position[1] === tree.position[1])){
+    if ((rover.position [0] === tree.position[0]) && (rover.position[1] === tree.position[1])){
       rover.position[0] = rover.previousPosition[0];
       rover.position[1] = rover.previousPosition[1];
         console.log("There is an Obstacle, my Position is [" + rover.position[0] + ", " + rover.position[1] + "]");
@@ -86,7 +86,7 @@ function goBackward(rover) {
       rover.position[1]++;
     }
       break;
-  }  if ((rover.position [0] === tree.position[0]) && (myRover.position[1] === tree.position[1])){
+  }  if ((rover.position [0] === tree.position[0]) && (rover.position[1] === tree.position[1])){
       rover.position[0] = rover.previousPosition[0];
       rover.position[1] = rover.previousPosition[1];
         console.log("There is an Obstacle, my Position is [" + rover.position[0] + ", " + rover.position[1] + "]");
