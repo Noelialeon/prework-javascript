@@ -51,7 +51,7 @@ function nextStep() {
     moves();
 
   } else if ((myRover.position [0] === yourRover.position[0]) && (myRover.position[1] === yourRover.position[1])){
-      alert("'Hi Rover 2!' My position is [" + myRover.previousPosition[0] + ", " + myRover.previousPosition[1] + "]");
+      alert("'Hi Rover 2!' Rover 1 position is [" + myRover.previousPosition[0] + ", " + myRover.previousPosition[1] + "]");
       myRover.position[0] = myRover.previousPosition[0];
       myRover.position[1] = myRover.previousPosition[1];
       moves();
@@ -101,7 +101,7 @@ function nextStep() {
      yourMoves();
      }
      if ((yourRover.position [0] === myRover.position[0]) && (yourRover.position[1] === myRover.position[1])){
-       alert("'Hi Rover 1!' My position is [" + yourRover.previousPosition[0] + ", " + yourRover.previousPosition[1] + "]");
+       alert("'Hi Rover 1!' Rover 2 position is [" + yourRover.previousPosition[0] + ", " + yourRover.previousPosition[1] + "]");
        yourRover.position[0] = yourRover.previousPosition[0];
        yourRover.position[1] = yourRover.previousPosition[1];
        yourMoves();
