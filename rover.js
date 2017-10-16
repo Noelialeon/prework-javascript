@@ -3,16 +3,53 @@ var myRover = {
   previousPosition: [0,0],
   direction: 'N',
 };
-var f, b, l, r;
-
-var f = goForward(myRover);
-var b = goBackward(myRover);
-var l = turnLeft(myRover);
-var r = turnRight(myRover);
 
 var tree = {
-  position: [Math.floor((Math.random() * 10) + 1),Math.floor((Math.random() * 10) + 1)],};
+  position: [Math.floor((Math.random() * 10) + 1),Math.floor((Math.random() * 10) + 1)],
+};
 
+
+
+function moves() {
+var headingTo = prompt("There is an obstacle in [" + tree.position[0] + ", " + tree.position[1] + "]. Please add a command: f, b, l or r");
+if (headingTo === null) {
+    alert("You abandoned Rover in Mars");
+    return; //para evitar que se convierta en un pop-up
+   }
+   switch(headingTo) {
+   case "f":
+   goForward(myRover);
+       break;
+   case "b":
+   goBackward(myRover);
+       break;
+   case "l":
+   turnLeft(myRover);
+       break;
+   case "r":
+   turnRight(myRover);
+       break;
+  default:
+      alert("Please press f, b, l or r"); moves();
+       break;
+     }
+     nextStep();
+
+}
+
+function nextStep() {
+  if ((myRover.position [0] === tree.position[0]) && (myRover.position[1] === tree.position[1])){
+    alert("There is an Obstacle, my Position is [" + myRover.previousPosition[0] + ", " + myRover.previousPosition[1] + "]");
+    myRover.position[0] = myRover.previousPosition[0];
+    myRover.position[1] = myRover.previousPosition[1];
+    moves();
+    } else {
+    var whereIsRover = alert("Actual Rover Position: [" + myRover.position[0] + ", " + myRover.position[1] + "]. Direction: " + myRover.direction);
+        myRover.previousPosition[0] = myRover.position[0];
+        myRover.previousPosition[1] = myRover.position[1];
+        moves();
+      }
+ }
 
 function goForward(rover) {
   switch(rover.direction) {
@@ -45,14 +82,7 @@ function goForward(rover) {
     }
       break;}
 
-    if ((rover.position [0] === tree.position[0]) && (rover.position[1] === tree.position[1])){
-      rover.position[0] = rover.previousPosition[0];
-      rover.position[1] = rover.previousPosition[1];
-        console.log("There is an Obstacle, my Position is [" + rover.position[0] + ", " + rover.position[1] + "]");
-      } else {
-          console.log("Actual Rover Position: [" + rover.position[0] + ", " + rover.position[1] + "]");
-          rover.previousPosition[0] = rover.position[0];
-          rover.previousPosition[1] = rover.position[1];}
+
 
 }
 
@@ -86,16 +116,9 @@ function goBackward(rover) {
       rover.position[1]++;
     }
       break;
-  }  if ((rover.position [0] === tree.position[0]) && (rover.position[1] === tree.position[1])){
-      rover.position[0] = rover.previousPosition[0];
-      rover.position[1] = rover.previousPosition[1];
-        console.log("There is an Obstacle, my Position is [" + rover.position[0] + ", " + rover.position[1] + "]");
-      } else {
-          console.log("Actual Rover Position: [" + rover.position[0] + ", " + rover.position[1] + "]");
-          rover.previousPosition[0] = rover.position[0];
-          rover.previousPosition[1] = rover.position[1];}
-
+  }
 }
+
 function turnRight(rover) {
   switch(rover.direction) {
     case 'N':
@@ -111,7 +134,6 @@ function turnRight(rover) {
     rover.direction = 'N';
       break;
   }
-    console.log("New Rover Direction:" + rover.direction);
 
 }
 
@@ -130,6 +152,7 @@ function turnLeft(rover) {
     rover.direction = 'S';
       break;
     }
-    console.log("New Rover Direction:" + rover.direction);
 
 }
+
+moves();
