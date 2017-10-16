@@ -15,12 +15,12 @@ var tree = {
 };
 
 function moves() {
-var headingToMyRover = prompt("The obstacle is at [" + tree.position[0] + ", " + tree.position[1] + "]. You are driving Rover 1. Please add a command: f, b, l or r. Add 'rover 2' to driver Rover 2");
-if (headingToMyRover === null) {
+var drivingMyRover = prompt("The obstacle is at [" + tree.position[0] + ", " + tree.position[1] + "]. You are driving Rover 1. Please add a command: f, b, l or r. Add 'rover 2' to drive Rover 2");
+if (drivingMyRover === null) {
     alert("You abandoned Rover 1 in Mars");
     return; //para evitar que se convierta en un pop-up molesto
    }
-   switch(headingToMyRover) {
+   switch(drivingMyRover) {
    case "f":
    goForward(myRover);
        break;
@@ -65,12 +65,12 @@ function nextStep() {
  }
 
  function yourMoves() {
- var headingToYourRover = prompt("There is an obstacle at [" + tree.position[0] + ", " + tree.position[1] + "]. You are driving Rover 2. Please add a command: f, b, l or r. Add 'rover 1' to driver Rover 1");
- if (headingToYourRover === null) {
+ var drivingYourRover = prompt("There is an obstacle at [" + tree.position[0] + ", " + tree.position[1] + "]. You are driving Rover 2. Please add a command: f, b, l or r. Add 'rover 1' to drive Rover 1");
+ if (drivingYourRover === null) {
      alert("You abandoned Rover 2 in Mars");
-     return; //para evitar que se convierta en un pop-up molesto
+     return;
     }
-    switch(headingToYourRover) {
+    switch(drivingYourRover) {
     case "f":
     goForward(yourRover);
         break;
